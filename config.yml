@@ -10,9 +10,9 @@ params:
     core:
       text: "user@terminalCV"
       color: 'pink'
-      before: '['
+      #before: '['
       beforeColor: 'red'
-      after: '\]'
+      #after: '\]'
       afterColor: 'red'
       # separator: '-'
     separator:
@@ -22,7 +22,7 @@ params:
       before: '['
       beforeColor: 'red'
       text: '~/terminalcv'
-      color: 'blue'
+      color: 'lightblue'
       after: '\]'
       afterColor: 'red'
     extra:
@@ -121,105 +121,230 @@ params:
       date: September 2020 - June 2024
       description: Mechatronics Engineering
 
-    - courseName: Default color training
-      date: Sept 2004 - Jun 2008
-      #description: There is no need for description
+    - courseName: Nixor College
+      color: red
+      date: August 2018 - Jun 2020
+      description: Maths, Physics, Chemistry
 
   skills:
     settings:
-      useLess: true
+      useLess: false
     details:
-    - name: Skill 1
-      percentage: 90
-      Description: you can add a description
-
-    - name: Skill 2
-      percentage: 30
-      #description: or you can leave it comented   
-
-    - name: Skill 3
-      color: blue
+    - name: Web Pentesting
       percentage: 50
-      description: Skill names can have colors too
+      description: Comfortable with Burp Suite, SQL Injection, XSS, SSRF, IDOR
+
+    - name: Network Pentesting
+      percentage: 45
+      description: Experience with Nmap, Wireshark, Metasploit, Traceroute, SNMP enumeration
+
+    - name: Malware Analysis
+      percentage: 30
+      description: Learning static and dynamic analysis, working with malware sandboxes
+
+    - name: Reverse Engineering
+      percentage: 25
+      description: Basic knowledge of assembly, Ghidra, and IDA Free
+
+    - name: Digital Forensics
+      percentage: 30
+      description: Beginner in disk forensics, memory analysis, and file carving
+
+    - name: Web Scraping & Automation
+      percentage: 60
+      description: Intermediate in Selenium, BeautifulSoup, Scrapy, Puppeteer
+
+    - name: Programming
+      percentage: 70
+      description: Comfortable in Python, Bash, C++, MySQL, Microcontroller Programming
+
+    - name: Machine Learning
+      percentage: 35
+      description: Beginner in regression, classification, OpenCV, TensorFlow, Scikit-learn
+
+    - name: Engineering Tools
+      percentage: 50
+      description: Experience with AutoCAD, LabVIEW, MATLAB, Proteus, RsLogix
 
   softskills:
     # settings:
     #   useLess: true
     details:
-    - name: SoftSkill 1
-      color: red
-      percentage: 80
-      #description:
+    - name: Problem Solving
+      percentage: 75
+      description: Strong analytical thinking and troubleshooting skills in different scenarios
 
-    - name:  SoftSkill 2
-      #color: 
-      percentage: 90
-      description: Description
+    - name: Communication
+      percentage: 65
+      description: Ability to explain technical concepts clearly to non-technical audiences
+
+    - name: Teamwork & Collaboration
+      percentage: 70
+      description: Experience working in SOC teams, collaborating with IT and security professionals
+
+    - name: Adaptability
+      percentage: 80
+      description: Quickly learns new technologies, tools, and  methodologies
+
+    - name: Critical Thinking
+      percentage: 75
+      description: Strong ability to analyze patterns and detect flaws effectively
 
   languages:
     # settings:
     #   useLess: true
     details:
     - name: English
-      color: Blue
-      percentage: 50
+      #color: Blue
+      percentage: 100
       #description: 
 
-    - name: Gibberish
-      percentage: 100
-      description: pasghettipigglywiggly
+    - name: Urdu
+      percentage: 80
+      #description: pasghettipigglywiggly
 
 
   projects:
     # settings:
     #   useLess: true
     details:
-    - title: Project Red
-      color: red
-      date: since 2019
-      link: https://example.com
-      description: Describing red stuff
-
-    - title: Project Blue
+    - title: Computer Vision Car Counter
       color: blue
-      date: since 2016
-      link: https://example.com/blue
-      #description: nothing to describe
+      date: 2023
+      link: https://github.com/MasterChief220/Computer-Vision-Car-Counter
+      description: A project for detecting and counting cars in video frames using Image Processing techniques. Utilizes a pre-trained Haar Cascade Classifier for accurate car detection. Built with OpenCV and Python.
 
-    - title: Project Default
-      date: Since 2017
-      link: https://example.com/default
-      #description: not there either
+    - title: Qalam Form Filler
+      color: green
+      date: 2024
+      link: https://github.com/MasterChief220/qalam-form-filler
+      description: A Python script leveraging Selenium for automated interaction with the Qalam NUST portal. Automates login, form navigation, and button clicks using web element identification and dynamic waits.
+
+    - title: ELK SIEM
+      color: red
+      date: 2024
+      link: https://bassamkhan.netlify.app/#
+      description: Set up Elastic Stack (Elasticsearch and Kibana) to centralize logs from Linux and Windows machines. Configured Auditbeat and Winlogbeat for log collection, enabling real-time analysis and security monitoring.
+
 
   certifications:
     # settings:
     #   useLess: true
     details:
-    - certName: Example Cert
-      company: Example Certifying Company
-      date: Date of Completion
-      badge: https://www.link.to.badge
-      #description: Lorem Ipsum
+    - certName: SOC Level 1 Certificate
+      company: TryHackMe
+      date: Jan 2025
+      badge:  https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-VAFQPBPHL0.pdf
+      description: Certified in Security Operations Center (SOC) Level 1, covering SIEM tools, network security, and incident detection.
+
+    - certName: Networking Basics
+      company: Cisco
+      date: Oct 2024
+      badge: https://www.credly.com/badges/f7f24b92-fe6f-4240-86dd-0767c8e1ef08/linked_in_profile
+      description: Completed a fundamental networking course covering network security, routing, switching, and TCP/IP.
+
+    - certName: Python, Bash, and SQL Essentials for Data Engineering
+      company: Coursera
+      date: Oct 2023
+      badge: https://www.coursera.org/account/accomplishments/specialization/certificate/5HD4Y9T3XDXP
+      description: Covered Python, Bash scripting, SQL, web scraping, and data engineering techniques.
+
+    - certName: Developing Front-End Apps with React
+      company: Coursera
+      date: Sep 2023
+      badge: https://www.coursera.org/account/accomplishments/certificate/HT5GEEFJ645R
+      description: Learned React.js for front-end web development, including state management and component-based architecture.
+
+    - certName: Google Cybersecurity Certificate
+      company: Coursera
+      date: Sep 2023
+      badge: https://www.credly.com/badges/2c389484-5213-4319-8a84-9d24a0bc6405/linked_in_profile
+      description: Covered security frameworks, SIEM tools, incident response, and Linux system security.
+
+    - certName: Getting Started with Git and GitHub
+      company: Coursera
+      date: Aug 2023
+      badge: https://www.coursera.org/account/accomplishments/certificate/BWCMLWEQ8SZ5
+      description: Fundamental training on Git version control and GitHub for repository management.
+
+    - certName: Introduction to Bash Shell Scripting
+      company: Coursera
+      date: Aug 2023
+      badge: https://www.coursera.org/account/accomplishments/certificate/AAR8PQR7932E
+      description: Introduction to writing and automating tasks using Bash scripting.
+
+    - certName: Introduction to Cloud Computing
+      company: Coursera
+      date: Aug 2023
+      badge: https://www.coursera.org/account/accomplishments/certificate/WB4QE6HS9KR4
+      description: Covered cloud computing fundamentals, including cloud deployment models and services.
+
+    - certName: Junior Penetration Tester
+      company: TryHackMe
+      date: Aug 2023
+      badge: https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-0H8WMX92SB.png
+      description: Covered penetration testing techniques including privilege escalation, SQL injection, web vulnerabilities, and Metasploit.
+
+    - certName: Ethical Hacking Essentials (EHE)
+      company: EC-Council
+      date: Jul 2023
+      badge: https://codered.eccouncil.org/certificate/f3d074c4-defe-447a-b98d-46df0a8b100a
+      description: Basic ethical hacking certification covering penetration testing methodologies.
+
+    - certName: Introduction to Cybersecurity
+      company: TryHackMe
+      date: Jul 2023
+      badge: https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-9D12ZWBCVI.png
+      description: Introduction to cybersecurity concepts including network security and risk assessment.
+
+    - certName: Introduction to Quantum Computing
+      company: Udemy
+      date: Jul 2023
+      badge: https://www.udemy.com/certificate/UC-7cc5659d-8ec2-4911-82ad-bead45bebda9/
+      description: Covered foundational quantum computing concepts.
+
+    - certName: Introduction to Web Development with HTML, CSS, JavaScript
+      company: Coursera
+      date: Jul 2023
+      badge: https://www.coursera.org/account/accomplishments/certificate/6H6WLHM3FNWN
+      description: Covered front-end web development using HTML, CSS, and JavaScript.
+
+    - certName: Pre-Security Learning Path
+      company: TryHackMe
+      date: Jul 2023
+      badge: https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-OPGALNQOOV.png
+      description: Covered cybersecurity fundamentals including networking, Linux, and web security.
+
+    - certName: Reverse Engineering .NET for Beginners (Visual Basic)
+      company: Udemy
+      date: Jul 2023
+      badge: https://www.udemy.com/certificate/UC-603f4b94-05d9-4098-8bd0-82de2adb5155/
+      description: Introduction to reverse engineering .NET applications.
+
+    - certName: Supervised Machine Learning- Regression and Classification
+      company: Coursera
+      date: Jun 2023
+      badge: https://coursera.org/share/2f8f4d42cc8da8e2f0b68c42888e0470
+      description: Covered machine learning fundamentals including regression and classification.
   
-  misc: 
-    # settings:
-    #   useLess: true
-    commandName: newcommand
-    title: "This Section can have a different command name"
+  misc:
+    commandName: links
+    title: "My Digital Presence"
     titleColor: teal
     content: |
-          Here the title and the content can have different colors
-          The content can be multi
-          
-          line
+         Explore my work and projects through the following links:
 
-          And spaces       will be respected as well
-          This section will have the default command: misc
-          but you can name it something else with the property
-          commandName: <String>
-          Give it a shot and try and uncomment the line 
-          commandName: newcommand
-          now instead of misc you can execute the newcommand for this section
-          Auto completion will know it too! :D 
+          🔸 Cybersecurity & Tech Blog:  
+             https://blog.snowdensvault.fyi/ 
+             – In-depth articles on cybersecurity, pentesting, and more.  
 
-    contentColor: orange
+          🔹 Portfolio:  
+             https://bassamkhan.netlify.app/  
+             – A streamlined overview of my skills, projects, and certifications.  
+
+          🔷 Main Website:  
+             https://snowdensvault.fyi/  
+             – The central hub for everything I do.  
+
+          Stay connected and explore my work!
+    contentColor: white
