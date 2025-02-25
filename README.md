@@ -1,4 +1,4 @@
 ﻿# terminal-cv
 
 Run
-` gatsby server`
+` hugo server`
