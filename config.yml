@@ -35,6 +35,7 @@ params:
   # startxLocation: https://example.com
   # useLess: true
   exitLocation: 'about:blank'
+  homeLocation: 'https://snowdensvault.fyi/' #Added home Command location
   source: true
   #use a ‎ (blank character) if your first character of the ascii art is a whitespace
   greeting: | 

@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w2.org/1999/xhtml">
+<script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><html lang="en">
+    <head>
+	<meta name="generator" content="Hugo 0.143.1">
+            <meta charset="utf-8" />
+    <title>terminalcv </title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="My terminal cv">
+    <meta property="og:title" content="terminalcv" />
+    <meta property="og:type" content="website"/>
+    <meta property="og:url" content="http://localhost:1313/" />
+    <link rel="sitemap" type="application/xml" title="Sitemap" href=""/>
+    <link rel="canonical" href="http://localhost:1313/" />    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="msapplication-TileColor" content="">
+
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.terminal/2.42.2/js/jquery.terminal.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery.terminal/js/less.min.js"></script>
+    <script src="https://unpkg.com/jquery.terminal/js/autocomplete_menu.js"></script>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery.terminal/2.42.0/css/jquery.terminal.min.css" rel="stylesheet"/>
+
+    <style>
+        body {
+            width: 100%;
+            font-size: 18px;
+        }
+    </style>
+
+
+
+
+    </head>
+        <body>
+        
+<script> 
+jQuery(document).ready(function($) {
+    var animation = false;
+
+    var commands = {
+        help: "shows help",
+        less: "Use less as output method",
+        whoami: "list basic details",
+        social: "list social networks",
+        work: "list work experience",
+        education: "list education",
+        skills: "list core skills",
+        softskills: "list soft skills",
+        languages: "list spoken languages",
+        projects: "list projects",
+         
+            certifications: "list certifications",
+        
+        
+        
+            "links": "My Digital Presence",
+        
+        
+        
+            version: "Current version",
+        
+         
+            home: "return to home",
+        
+        
+            exit: "exit the terminal",
+        
+        all: "Show all details",
+    };
+
+    function progressBar(number) {
+        var barLength = Math.round(number / 10);
+        var barFilled = Array(barLength + 1).join("&#9611;");
+        var barBlank= Array(11 - barLength).join("&#9617;");
+
+        return barFilled + barBlank
+    }
+
+    
+    function padKey(key, length) {
+        return key + ' '.repeat(length - key.length);
+    }
+
+    function commandsHelp() {
+        let longestKeyLength = Math.max(...Object.keys(commands).map(key => key.length));
+
+        let helpText = ""
+        for (let key in commands) {
+            if (commands.hasOwnProperty(key)) {
+                helpText += ` ${padKey(key, longestKeyLength)}\t${commands[key]}\n`
+            }
+        }
+        return helpText
+    }
+
+    var help = '\n[[b;white;]usage:]\n' +
+                '\n <command> - execute the command\n' +
+                ' less <command> - use less to display the output\n\n' +
+                '\n[[b;white;]Available commands:]\n' + 
+               commandsHelp();
+
+    var whoami = [
+     
+        '[[b;grey;]Name:]\t\t\tBassam Khan\n' + 
+        '[[b;grey;]Profession:]\t\tCybersecurity Engineer\n' +
+        '[[b;grey;]Location:]\t\tPakistan\n' +
+        
+        '[[b;grey;]Email:]\t\t\tbassam.exe@gmail.com\n' +
+        
+        
+        '[[b;grey;]Homepage:]\t\thttps:\/\/snowdensvault.fyi\n' +
+        
+        
+        'Avid CTF player with a passion for reverse engineering, OSINT, web \u0026 app pentesting, SOC analysis, and malware \u0026 exploit development.\nOff-duty, you\u0027ll find me lost in books, mastering chess, gaming, editing videos, or animating. Always chasing the next challenge! 🚀\n' +
+        
+        '\r',
+    
+    ];
+
+    function social() { 
+        var hideName = false;
+        let sMap = { 
+             
+                
+                "github": "https:\/\/github.com\/MasterChief220",
+                
+                "medium": "https:\/\/medium.com\/@bassam-khan",
+                
+                "linkedin": "https:\/\/www.linkedin.com\/in\/mbassamkhan\/",
+                
+                "tryhackme": "https:\/\/tryhackme.com\/p\/bassam.exe",
+                
+            
+        };
+
+        
+        socialText = []
+        for (let key in sMap) {
+            if (sMap.hasOwnProperty(key)) {
+                if (hideName) {
+                    socialText.push(sMap[key]);
+                } else { 
+                    let longestKeyLength = Math.max(...Object.keys(sMap).map(key => key.length));
+                    socialText.push(`${padKey(key, longestKeyLength)}\t${sMap[key]}`)
+                };
+            }
+        }
+
+        return socialText
+    }
+
+    var certifications = [
+    
+        
+            '---\n' +
+            '[[b;grey;]SOC Level 1 Certificate]\n' +
+            'Jan 2025\n' +
+            
+            'TryHackMe\n' +
+            
+            
+            'Certified in Security Operations Center (SOC) Level 1, covering SIEM tools, network security, and incident detection.\n' +
+            
+            
+            'Badge: \thttps:\/\/tryhackme-certificates.s3-eu-west-1.amazonaws.com\/THM-VAFQPBPHL0.pdf\n' +
+            
+            '\r',
+        
+            '---\n' +
+            '[[b;grey;]Networking Basics]\n' +
+            'Oct 2024\n' +
+            
+            'Cisco\n' +
+            
+            
+            'Completed a fundamental networking course covering network security, routing, switching, and TCP\/IP.\n' +
+            
+            
+            'Badge: \thttps:\/\/www.credly.com\/badges\/f7f24b92-fe6f-4240-86dd-0767c8e1ef08\/linked_in_profile\n' +
+            
+            '\r',
+        
+            '---\n' +
+            '[[b;grey;]Python, Bash, and SQL Essentials for Data Engineering]\n' +
+            'Oct 2023\n' +
+            
+            'Coursera\n' +
+            
+            
+            'Covered Python, Bash scripting, SQL, web scraping, and data engineering techniques.\n' +
+            
+            
+            'Badge: \thttps:\/\/www.coursera.org\/account\/accomplishments\/specialization\/certificate\/5HD4Y9T3XDXP\n' +
+            
+            '\r',
+        
+            '---\n' +
+            '[[b;grey;]Developing Front-End Apps with React]\n' +
+            'Sep 2023\n' +
+            
+            'Coursera\n' +
+            
+            
+            'Learned React.js for front-end web development, including state management and component-based architecture.\n' +
+            
+            
+            'Badge: \thttps:\/\/www.coursera.org\/account\/accomplishments\/certificate\/HT5GEEFJ645R\n' +
+            
+            '\r',
+        
+            '---\n' +
+            '[[b;grey;]Google Cybersecurity Certificate]\n' +
+            'Sep 2023\n' +
+            
+            'Coursera\n' +
+            
+            
+            'Covered security frameworks, SIEM tools, incident response, and Linux system security.\n' +
+            
+            
+            'Badge: \thttps:\/\/www.credly.com\/badges\/2c389484-5213-4319-8a84-9d24a0bc6405\/linked_in_profile\n' +
+            
+            '\r',
+        
+            '---\n' +
+            '[[b;grey;]Getting Started with Git and GitHub]\n' +
+            'Aug 2023\n' +
+            
+            'Coursera\n' +
+            
+            
+            'Fundamental training on Git version control and GitHub for repository management.\n' +
+            
+            
+            'Badge: \thttps:\/\/www.coursera.org\/account\/accomplishments\/certificate\/BWCMLWEQ8SZ5\n' +
+            
+            '\r',
+        
+            '---\n' +
+            '[[b;grey;]Introduction to Bash Shell Scripting]\n' +
+            'Aug 2023\n' +
+            
+            'Coursera\n' +
+            
+            
+            'Introduction to writing and automating tasks using Bash scripting.\n' +
+            
+            
+            'Badge: \thttps:\/\/www.coursera.org\/account\/accomplishments\/certificate\/AAR8PQR7932E\n' +
+            
+            '\r',
+        
+            '---\n' +
+            '[[b;grey;]Introduction to Cloud Computing]\n' +
+            'Aug 2023\n' +
+            
+            'Coursera\n' +
+            
+            
+            'Covered cloud computing fundamentals, including cloud deployment models and services.\n' +
+            
+            
+            'Badge: \thttps:\/\/www.coursera.org\/account\/accomplishments\/certificate\/WB4QE6HS9KR4\n' +
+            
+            '\r',
+        
+            '---\n' +
+            '[[b;grey;]Junior Penetration Tester]\n' +
+            'Aug 2023\n' +
+            
+            'TryHackMe\n' +
+            
+            
+            'Covered penetration testing techniques including privilege escalation, SQL injection, web vulnerabilities, and Metasploit.\n' +
+            
+            
+            'Badge: \thttps:\/\/tryhackme-certificates.s3-eu-west-1.amazonaws.com\/THM-0H8WMX92SB.png\n' +
+            
+            '\r',
+        
+            '---\n' +
+            '[[b;grey;]Ethical Hacking Essentials (EHE)]\n' +
+            'Jul 2023\n' +
+            
+            'EC-Council\n' +
+            
+            
+            'Basic ethical hacking certification covering penetration testing methodologies.\n' +
+            
+            
+            'Badge: \thttps:\/\/codered.eccouncil.org\/certificate\/f3d074c4-defe-447a-b98d-46df0a8b100a\n' +
+            
+            '\r',
+        
+            '---\n' +
+            '[[b;grey;]Introduction to Cybersecurity]\n' +
+            'Jul 2023\n' +
+            
+            'TryHackMe\n' +
+            
+            
+            'Introduction to cybersecurity concepts including network security and risk assessment.\n' +
+            
+            
+            'Badge: \thttps:\/\/tryhackme-certificates.s3-eu-west-1.amazonaws.com\/THM-9D12ZWBCVI.png\n' +
+            
+            '\r',
+        
+            '---\n' +
+            '[[b;grey;]Introduction to Quantum Computing]\n' +
+            'Jul 2023\n' +
+            
+            'Udemy\n' +
+            
+            
+            'Covered foundational quantum computing concepts.\n' +
+            
+            
+            'Badge: \thttps:\/\/www.udemy.com\/certificate\/UC-7cc5659d-8ec2-4911-82ad-bead45bebda9\/\n' +
+            
+            '\r',
+        
+            '---\n' +
+            '[[b;grey;]Introduction to Web Development with HTML, CSS, JavaScript]\n' +
+            'Jul 2023\n' +
+            
+            'Coursera\n' +
+            
+            
+            'Covered front-end web development using HTML, CSS, and JavaScript.\n' +
+            
+            
+            'Badge: \thttps:\/\/www.coursera.org\/account\/accomplishments\/certificate\/6H6WLHM3FNWN\n' +
+            
+            '\r',
+        
+            '---\n' +
+            '[[b;grey;]Pre-Security Learning Path]\n' +
+            'Jul 2023\n' +
+            
+            'TryHackMe\n' +
+            
+            
+            'Covered cybersecurity fundamentals including networking, Linux, and web security.\n' +
+            
+            
+            'Badge: \thttps:\/\/tryhackme-certificates.s3-eu-west-1.amazonaws.com\/THM-OPGALNQOOV.png\n' +
+            
+            '\r',
+        
+            '---\n' +
+            '[[b;grey;]Reverse Engineering .NET for Beginners (Visual Basic)]\n' +
+            'Jul 2023\n' +
+            
+            'Udemy\n' +
+            
+            
+            'Introduction to reverse engineering .NET applications.\n' +
+            
+            
+            'Badge: \thttps:\/\/www.udemy.com\/certificate\/UC-603f4b94-05d9-4098-8bd0-82de2adb5155\/\n' +
+            
+            '\r',
+        
+            '---\n' +
+            '[[b;grey;]Supervised Machine Learning- Regression and Classification]\n' +
+            'Jun 2023\n' +
+            
+            'Coursera\n' +
+            
+            
+            'Covered machine learning fundamentals including regression and classification.\n' +
+            
+            
+            'Badge: \thttps:\/\/coursera.org\/share\/2f8f4d42cc8da8e2f0b68c42888e0470\n' +
+            
+            '\r',
+        
+    
+    ];
+    
+    var work = [
+    
+        
+            '---\n' +
+            '[[b;red;]Assistant Executive Engineer - Cybersecurity]\n' +
+            'National Radio and Telecommunication Corporation\n' +
+            'Islamabad, Pakistan\n' +
+            'September 2024 - Present\n' +
+            '\n' +
+            '1. Configured and deployed EDR, NDR, SIEM, and SOAR solutions at NCERT, including setting up the network and servers for hosting the tools.\n2. Analyzed malware behavior and signatures using open-source tools for threat detection.\n3. Investigated phishing links, examining websites and redirections for security risks.\n4. Conducted penetration testing and vulnerability assessments on websites and servers to identify and remediate security weaknesses.\n' +
+            '\r',
+        
+            '---\n' +
+            '[[b;purple;]Intern]\n' +
+            'Lucky Power\n' +
+            'Karachi, Pakistan\n' +
+            'July 2024  - August 2024\n' +
+            '\n' +
+            '1. Completed a 6-week internship at Lucky Power Plant under Harbin Electric’s O\u0026M contract, gaining hands-on experience in coal handling, water treatment, flue gas desulfurization, and boiler-turbine-generator operations.\n2. Operated and studied an ultra-supercritical boiler, including its start-up procedure, coal handling with stacker-reclaimer, and the role of IDF and FDF fans in maintaining boiler functionality.\n3. Acquired knowledge in water treatment processes, such as seawater intake and chemical testing (oxygen bomb testing, proximate analysis), and observed flue gas desulfurization using limestone slurry to produce gypsum.\n4. Developed a comprehensive understanding of operations in a 660 MW power plant, focusing on efficiency and safety protocols.\n' +
+            '\r',
+        
+            '---\n' +
+            '[[b;green;]Intern]\n' +
+            'Fauji Foundation\n' +
+            'Rawalpindi, Pakistan\n' +
+            'August 2023 - September 2023\n' +
+            '\n' +
+            '1. Completed a networking\/cybersecurity internship, gaining expertise in OSI layers, routing, routed protocols, VTP, STP, Ethernet cables, subnetting, and network segmentation.\n2. Designed a detailed network layout using Microsoft Visio and drafted a bill of quantity in Excel for network setup, ensuring accurate representation and configuration planning.\n3. Simulated network architecture in Packet Tracer, configuring switches, routers, VLANs, trunking lines, and STP protocols for optimal functionality.\n4. Conducted security assessments using Wireshark, Nmap, Traceroute, and Aircrack to analyze network packets, identify vulnerabilities, and strengthen network defenses.\n' +
+            '\r',
+        
+    
+    ];
+
+    var education = [
+    
+        
+            '---\n' +
+            '[[b;blue;]NUST]\n' +
+            'September 2020 - June 2024\n' +
+            
+                "Mechatronics Engineering\n" +
+            
+            "\r",
+        
+            '---\n' +
+            '[[b;red;]Nixor College]\n' +
+            'August 2018 - Jun 2020\n' +
+            
+                "Maths, Physics, Chemistry\n" +
+            
+            "\r",
+        
+    
+    ];
+
+    var projects = [
+    
+        
+            '---\n' +
+            '[[b;blue;]Computer Vision Car Counter]\n' +
+            '2023\n' +
+            'https:\/\/github.com\/MasterChief220\/Computer-Vision-Car-Counter\n' +
+            
+            'A project for detecting and counting cars in video frames using Image Processing techniques. Utilizes a pre-trained Haar Cascade Classifier for accurate car detection. Built with OpenCV and Python.\n' +
+            
+            "\r",
+      
+            '---\n' +
+            '[[b;green;]Qalam Form Filler]\n' +
+            '2024\n' +
+            'https:\/\/github.com\/MasterChief220\/qalam-form-filler\n' +
+            
+            'A Python script leveraging Selenium for automated interaction with the Qalam NUST portal. Automates login, form navigation, and button clicks using web element identification and dynamic waits.\n' +
+            
+            "\r",
+      
+            '---\n' +
+            '[[b;red;]ELK SIEM]\n' +
+            '2024\n' +
+            'https:\/\/bassamkhan.netlify.app\/#\n' +
+            
+            'Set up Elastic Stack (Elasticsearch and Kibana) to centralize logs from Linux and Windows machines. Configured Auditbeat and Winlogbeat for log collection, enabling real-time analysis and security monitoring.\n' +
+            
+            "\r",
+      
+    
+    ];
+
+    var skills = [
+    
+        
+            '[[b;grey;]Web Pentesting:]\n' +
+            progressBar( 50 ) +
+            '50' + '%\n' +
+            
+            'Comfortable with Burp Suite, SQL Injection, XSS, SSRF, IDOR\n' +
+            
+            '\r',
+        
+            '[[b;grey;]Network Pentesting:]\n' +
+            progressBar( 45 ) +
+            '45' + '%\n' +
+            
+            'Experience with Nmap, Wireshark, Metasploit, Traceroute, SNMP enumeration\n' +
+            
+            '\r',
+        
+            '[[b;grey;]Malware Analysis:]\n' +
+            progressBar( 30 ) +
+            '30' + '%\n' +
+            
+            'Learning static and dynamic analysis, working with malware sandboxes\n' +
+            
+            '\r',
+        
+            '[[b;grey;]Reverse Engineering:]\n' +
+            progressBar( 25 ) +
+            '25' + '%\n' +
+            
+            'Basic knowledge of assembly, Ghidra, and IDA Free\n' +
+            
+            '\r',
+        
+            '[[b;grey;]Digital Forensics:]\n' +
+            progressBar( 30 ) +
+            '30' + '%\n' +
+            
+            'Beginner in disk forensics, memory analysis, and file carving\n' +
+            
+            '\r',
+        
+            '[[b;grey;]Web Scraping \u0026 Automation:]\n' +
+            progressBar( 60 ) +
+            '60' + '%\n' +
+            
+            'Intermediate in Selenium, BeautifulSoup, Scrapy, Puppeteer\n' +
+            
+            '\r',
+        
+            '[[b;grey;]Programming:]\n' +
+            progressBar( 70 ) +
+            '70' + '%\n' +
+            
+            'Comfortable in Python, Bash, C\u002b\u002b, MySQL, Microcontroller Programming\n' +
+            
+            '\r',
+        
+            '[[b;grey;]Machine Learning:]\n' +
+            progressBar( 35 ) +
+            '35' + '%\n' +
+            
+            'Beginner in regression, classification, OpenCV, TensorFlow, Scikit-learn\n' +
+            
+            '\r',
+        
+            '[[b;grey;]Engineering Tools:]\n' +
+            progressBar( 50 ) +
+            '50' + '%\n' +
+            
+            'Experience with AutoCAD, LabVIEW, MATLAB, Proteus, RsLogix\n' +
+            
+            '\r',
+        
+    
+    ];
+
+    var softSkills = [
+    
+        
+            '[[b;grey;]Problem Solving:]\n' +
+            progressBar( 75 ) +
+            '75' + '%\n' + 
+            
+            'Strong analytical thinking and troubleshooting skills in different scenarios\n' +
+            
+            '\r',
+        
+            '[[b;grey;]Communication:]\n' +
+            progressBar( 65 ) +
+            '65' + '%\n' + 
+            
+            'Ability to explain technical concepts clearly to non-technical audiences\n' +
+            
+            '\r',
+        
+            '[[b;grey;]Teamwork \u0026 Collaboration:]\n' +
+            progressBar( 70 ) +
+            '70' + '%\n' + 
+            
+            'Experience working in SOC teams, collaborating with IT and security professionals\n' +
+            
+            '\r',
+        
+            '[[b;grey;]Adaptability:]\n' +
+            progressBar( 80 ) +
+            '80' + '%\n' + 
+            
+            'Quickly learns new technologies, tools, and  methodologies\n' +
+            
+            '\r',
+        
+            '[[b;grey;]Critical Thinking:]\n' +
+            progressBar( 75 ) +
+            '75' + '%\n' + 
+            
+            'Strong ability to analyze patterns and detect flaws effectively\n' +
+            
+            '\r',
+        
+    
+    ];
+  
+    var languages = [
+    
+        
+            '[[b;grey;]English:]\n' +
+            progressBar( 100 )+ 
+            '100' + '%\n' +
+            
+            '\r',
+        
+            '[[b;grey;]Urdu:]\n' +
+            progressBar( 80 )+ 
+            '80' + '%\n' +
+            
+            '\r',
+        
+    
+    ];
+
+    var misc = [
+         
+        '[[b;teal;]My Digital Presence]\n' +
+        '[[;white;]Explore my work and projects through the following links:\n\n 🔸 Cybersecurity \u0026 Tech Blog:  \n    https:\/\/blog.snowdensvault.fyi\/ \n    – In-depth articles on cybersecurity, pentesting, and more.  \n\n 🔹 Portfolio:  \n    https:\/\/bassamkhan.netlify.app\/  \n    – A streamlined overview of my skills, projects, and certifications.  \n\n 🔷 Main Website:  \n    https:\/\/snowdensvault.fyi\/  \n    – The central hub for everything I do.  \n\n Stay connected and explore my work!\n]\n',
+         
+    ];
+
+    var source =  '        _______            \n' +
+                  '       |       |           \n' +
+                  '       |       |           \n' +
+                  '       |_______|_______    \n' +
+                  '               |       |   \n' +
+                  '               |       |   \n' +
+                  ' ______________|_______|   \n' +
+                  '|      |       |       |   \n' +
+                  '|      |       |       |   \n' +
+                  '|______|_______|_______|   \n' +
+                  '[[;red;]May the source be with you]\n' +
+                  '[[;grey;]https://github.com/coolapso/hugo-theme-terminalcv\n';
+
+    var all = [ 
+        whoami,
+        social(),
+        work,
+        education,
+        skills,
+        softSkills,
+        languages,
+        projects,
+        certifications,
+        misc,
+        
+        
+        
+        source,
+        
+    ]
+
+    $('body').terminal(function(command, term) {
+
+        var useLess = false;
+        
+
+        function echoArray(array) {
+            if (useLess) {
+                term.less(array);
+            } else {
+                for (i = 0; i < array.length; i += 1) {
+                    term.echo(array[i]);
+                }
+            }
+        }
+        
+        function progress(percent, width) {
+            var size = Math.round(width*percent/100);
+            var left = '', taken = '', i;
+            for (i=size; i--;) {
+                taken += '=';
+            }
+            if (taken.length > 0) {
+                taken = taken.replace(/=$/, '>');
+            }
+            for (i=width-size; i--;) {
+                left += ' ';
+            }
+            return '[' + taken + left + '] ' + percent + '%';
+        }
+
+        function loading () {
+            var i = 0, size = 30;
+            prompt = term.get_prompt();
+            string = progress(0, size);
+            term.set_prompt(progress);
+            animation = true;
+            (function loop() {
+                string = progress(i++, size);
+                term.set_prompt(string);
+                if (i < 100) {
+                    timer = setTimeout(loop, 10);
+                } else {
+                    term.echo(progress(i, size) + ' [[b;green;]OK]').set_prompt(prompt);
+                    animation = false
+                }
+            })();
+        }
+
+        commands = command.split(/[ ]+/);
+        if (commands[0] == 'less') {
+            useLess = true;
+            commands.shift();
+        } 
+                    
+        switch(commands[0]) {
+            case 'whoami':
+                
+                echoArray(whoami);
+                break;
+            case 'social':
+                
+                echoArray(social());
+                break;
+            case 'work':
+                
+                echoArray(work);
+                break;
+            case 'education':
+                
+                echoArray(education);
+                break;
+            case 'skills':
+                
+                echoArray(skills);
+                break;
+            case 'softskills':
+                
+                echoArray(softSkills);
+                break;
+            case 'languages':
+                
+                echoArray(languages);
+                break;
+            case 'projects':
+                
+                echoArray(projects);
+                break;
+            case 'certifications':
+                
+                term.echo(certifications);
+                break;
+            case 'links':
+                
+                echoArray(misc);
+                break;
+            case 'help':
+            case '?':
+                term.echo(help);
+                break;
+            case 'all':
+                
+                echoArray(all.flat(1));
+                break;
+            
+            case ':(){:|:&};:':
+                term.echo("nice try");
+                break;
+            case 'source':
+                
+                term.echo(source);
+                break;
+            
+            case 'exit':
+                term.echo("terminating ... ")
+                loading();
+                setTimeout(function(){window.location = 'about:blank'}, 2000);
+                break;
+            
+            
+            case 'version':
+                term.echo("2.0.0");
+                break;
+            
+            
+            case 'home':
+                term.echo("Returning home...");
+                loading();
+                setTimeout(function(){window.location = 'https:\/\/snowdensvault.fyi\/'}, 2000);
+                break;
+            
+            case '':
+                break;
+            default:
+                term.echo("\nunknown command: " + command + "\n" +
+                          "please type 'help' or '?' for a list of available commands\n");
+        }
+    }, {
+        prompt: '[[;red;]][[;pink;]user@terminalCV][[;red;]][[;grey;]-][[;red;][][[;lightblue;]~\/terminalcv][[;red;]\\]][[;orange;]: ]',
+        greetings: "[[b;white;]‎ _                      _             _  _______      __\n| |                    (_)           | |\/ ____\\ \\    \/ \/\n| |_ ___ _ __ _ __ ___  _ _ __   __ _| | |     \\ \\  \/ \/ \n| __\/ _ \\ \u0027__| \u0027_ \u0060 _ \\| | \u0027_ \\ \/ _\u0060 | | |      \\ \\\/ \/  \n| ||  __\/ |  | | | | | | | | | | (_| | | |____   \\  \/   \n \\__\\___|_|  |_| |_| |_|_|_| |_|\\__,_|_|\\_____|   \\\/\n\nWelcome to my online resume\n\nType \u0027help\u0027 for a list of available commands\n]",
+
+        keydown: function(e, term) {
+            if (animation) {
+                if (e.which == 68 && e.ctrlKey) { 
+                    clearTimeout(timer);
+                    animation = false;
+                    term.echo(string + ' [[b;red;]FAIL]')
+                    .set_prompt(prompt);
+                }
+                return false;
+            }
+        },
+        autocompleteMenu: true,
+        completion: Object.keys(commands)
+        
+    });
+});
+</script>
+
+        </body>
+</html>

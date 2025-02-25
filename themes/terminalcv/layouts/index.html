@@ -29,6 +29,9 @@ jQuery(document).ready(function($) {
         {{ if .Site.Params.version }}
             version: "Current version",
         {{ end }}
+        {{ if .Site.Params.homeLocation }} // Custom command for homelocation
+            home: "return to home",
+        {{ end }}
         {{ if .Site.Params.exitLocation }}
             exit: "exit the terminal",
         {{ end }}
@@ -409,6 +412,13 @@ jQuery(document).ready(function($) {
             {{ if .Site.Params.version }}
             case 'version':
                 term.echo("{{ .Site.Params.version }}");
+                break;
+            {{ end }}
+            {{ if .Site.Params.homeLocation }}
+            case 'home':// Custom command for homelocation
+                term.echo("Returning home...");
+                loading();
+                setTimeout(function(){window.location = '{{ .Site.Params.homeLocation }}'}, 2000);
                 break;
             {{ end }}
             case '':
